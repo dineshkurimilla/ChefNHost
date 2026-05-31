@@ -1,0 +1,74 @@
+@import './variables';
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  padding: 20px;
+}
+
+.login-card {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: $border-radius;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  width: 100%;
+  max-width: 450px;
+  border-top: 4px solid $gold-accent;
+
+  h2 {
+    color: $dark-charcoal;
+    margin-bottom: 10px;
+  }
+  
+  p { margin-bottom: 30px; color: lighten($dark-charcoal, 20%); }
+
+  .input-group {
+    margin-bottom: 20px;
+    
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+    
+    input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      outline: none;
+      
+      &:focus { border-color: $deep-orange; }
+    }
+  }
+
+  .login-submit {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .signup-link {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+    
+    span {
+      color: $deep-orange;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  }
+}
+
+// Responsive login card
+@include respond(md) {
+  .login-card { padding: 30px; max-width: 420px; }
+}
+
+@include respond(sm) {
+  .login-container { padding: 12px; }
+  .login-card { padding: 20px; border-radius: 10px; }
+  .signup-link { font-size: 0.85rem; }
+}

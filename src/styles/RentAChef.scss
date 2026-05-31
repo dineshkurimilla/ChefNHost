@@ -1,0 +1,110 @@
+@import './variables';
+
+.marketplace-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+
+  .marketplace-header {
+    margin-bottom: 40px;
+    h1 { color: $deep-orange; }
+  }
+
+  .marketplace-layout {
+    display: flex;
+    gap: 40px;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+  }
+
+  /* Sidebar Filters */
+  .filters-sidebar {
+    width: 250px;
+    flex-shrink: 0;
+    background: #fff;
+    padding: 20px;
+    border-radius: $border-radius;
+    border: 1px solid #eee;
+
+    h3 { margin-bottom: 20px; color: $dark-charcoal; }
+    
+    .filter-group {
+      margin-bottom: 25px;
+      
+      h4 { margin-bottom: 10px; font-size: 1rem; color: $gold-accent; }
+      
+      label {
+        display: block;
+        margin-bottom: 8px;
+        cursor: pointer;
+      }
+      
+      .budget-slider { width: 100%; accent-color: $deep-orange; }
+    }
+  }
+
+  /* Chef Cards */
+  .chef-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+
+    .chef-card {
+      background: #fff;
+      border-radius: $border-radius;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: all $transition-speed;
+      border: 1px solid transparent;
+
+      &:hover {
+        transform: translateY(-5px);
+        border-color: rgba($gold-accent, 0.5);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      }
+
+      img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+      }
+
+      .chef-info {
+        padding: 20px;
+        
+        .card-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 5px;
+          
+          h3 { margin: 0; font-size: 1.2rem; }
+          .rating { display: flex; align-items: center; gap: 4px; font-weight: bold; }
+        }
+
+        .specialty { color: lighten($dark-charcoal, 30%); font-size: 0.9rem; margin-bottom: 10px; }
+        .available { color: $deep-orange; font-size: 0.85rem; margin-bottom: 15px; font-weight: 500;}
+
+        .card-footer {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          border-top: 1px solid #eee;
+          padding-top: 15px;
+
+          .price {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: $dark-charcoal;
+            small { font-weight: normal; font-size: 0.8rem; color: gray; }
+          }
+          
+          button { padding: 8px 16px; }
+        }
+      }
+    }
+  }
+}

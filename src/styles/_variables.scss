@@ -1,0 +1,30 @@
+// Brand Colors
+$deep-orange: #d84315;
+$cream-white: #fdfbf7;
+$gold-accent: #d4af37;
+$dark-charcoal: #333333;
+
+// Global Settings
+$font-main: 'Inter', sans-serif;
+$border-radius: 12px;
+$transition-speed: 0.3s ease;
+
+// Responsive breakpoints
+$bp-sm: 480px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+
+// Container paddings
+$container-padding: 20px;
+$container-padding-mobile: 12px;
+
+// Simple media query mixin
+@mixin respond($breakpoint) {
+	@if $breakpoint == sm {
+		@media (max-width: $bp-sm) { @content; }
+	} @else if $breakpoint == md {
+		@media (max-width: $bp-md) { @content; }
+	} @else if $breakpoint == lg {
+		@media (max-width: $bp-lg) { @content; }
+	}
+}

@@ -1,0 +1,202 @@
+@import './variables';
+
+.rentals-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+
+  .rentals-header {
+    text-align: center;
+    margin-bottom: 40px;
+
+    h1 { color: $dark-charcoal; font-size: 2.6rem; margin-bottom: 10px; }
+    p { color: lighten($dark-charcoal, 20%); font-size: 1.1rem; margin-bottom: 25px; }
+
+    .duration-controller {
+      display: inline-flex;
+      align-items: center;
+      gap: 15px;
+      background: #ffffff;
+      border: 1px solid rgba($gold-accent, 0.4);
+      padding: 10px 20px;
+      border-radius: 30px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+
+      .icon { color: $deep-orange; }
+      label { font-weight: 600; color: $dark-charcoal; }
+
+      .duration-stepper {
+        display: flex;
+        align-items: center;
+        background: #f5f5f5;
+        border-radius: 20px;
+        overflow: hidden;
+
+        button {
+          background: transparent;
+          border: none;
+          padding: 5px 15px;
+          font-size: 1.2rem;
+          font-weight: bold;
+          color: $deep-orange;
+          cursor: pointer;
+          &:hover { background: #e0e0e0; }
+        }
+
+        span {
+          font-weight: 700;
+          min-width: 60px;
+          text-align: center;
+          color: $dark-charcoal;
+        }
+      }
+    }
+  }
+
+  /* Category Navigation */
+  .category-tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 40px;
+
+    .tab-btn {
+      background: #fff;
+      border: 1px solid #ddd;
+      padding: 10px 20px;
+      border-radius: $border-radius;
+      color: $dark-charcoal;
+      font-weight: 500;
+
+      &:hover { border-color: $deep-orange; color: $deep-orange; }
+      &.active {
+        background: $dark-charcoal;
+        color: $cream-white;
+        border-color: $dark-charcoal;
+      }
+    }
+  }
+
+  /* Rentals Grid */
+  .rentals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+
+    .rental-card {
+      background: #fff;
+      border-radius: $border-radius;
+      border: 1px solid #eaeaea;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all $transition-speed;
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+        border-color: rgba($gold-accent, 0.5);
+      }
+
+      .image-container {
+        height: 200px;
+        background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+
+        .product-icon { font-size: 5rem; }
+
+        .ar-badge {
+          position: absolute;
+          bottom: 15px;
+          right: 15px;
+          background: rgba($dark-charcoal, 0.9);
+          color: $cream-white;
+          border: none;
+          padding: 8px 12px;
+          border-radius: 20px;
+          font-size: 0.8rem;
+          font-weight: 600;
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          cursor: pointer;
+          transition: background 0.3s;
+
+          &:hover { background: $deep-orange; }
+        }
+      }
+
+      .card-content {
+        padding: 25px;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+
+        .category-tag { font-size: 0.85rem; color: #777; text-transform: uppercase; margin-bottom: 8px; }
+        h3 { font-size: 1.2rem; color: $dark-charcoal; margin-bottom: 20px; }
+
+        .pricing-breakdown {
+          background: #fdfbf7;
+          border: 1px solid rgba($gold-accent, 0.2);
+          border-radius: 8px;
+          padding: 15px;
+          margin-bottom: 25px;
+          margin-top: auto;
+
+          .price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            color: $dark-charcoal;
+
+            strong { font-size: 1.1rem; color: $deep-orange; }
+
+            &.setup-fee {
+              margin-bottom: 0;
+              padding-top: 8px;
+              border-top: 1px dashed #ddd;
+              color: #666;
+              
+              span { display: flex; align-items: center; gap: 6px; }
+              strong { color: $dark-charcoal; font-size: 1rem; small { font-weight: normal; font-size: 0.8rem; } }
+            }
+          }
+        }
+
+        .action-row {
+          display: flex;
+          gap: 15px;
+
+          .qty-controls {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            
+            button {
+              background: none; padding: 10px 15px; color: $dark-charcoal;
+              &:hover { background: #eee; }
+            }
+            span { padding: 0 10px; font-weight: bold; font-size: 1.1rem; min-width: 30px; text-align: center; }
+          }
+
+          .add-cart-btn {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            
+            &:disabled { background: #ccc; cursor: not-allowed; }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,83 @@
+@import './variables';
+
+.home-container {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  .home-hero {
+    text-align: center;
+    margin-bottom: 50px;
+
+    h1 {
+      color: $deep-orange;
+      font-size: clamp(1.6rem, 5vw, 3rem);
+      line-height: 1.05;
+      margin-bottom: 10px;
+      overflow-wrap: anywhere;
+      hyphens: auto;
+    }
+    p { font-size: clamp(0.95rem, 2.2vw, 1.15rem); }
+  }
+
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+
+    .category-card {
+      background: #ffffff;
+      border: 1px solid rgba($gold-accent, 0.3);
+      border-radius: $border-radius;
+      padding: 30px;
+      text-align: center;
+      transition: all $transition-speed;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      cursor: pointer;
+
+      .icon-wrapper {
+        color: $gold-accent;
+        margin-bottom: 15px;
+      }
+
+      h3 {
+        color: $dark-charcoal;
+      }
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 15px rgba($deep-orange, 0.15);
+        border-color: $deep-orange;
+        
+        .icon-wrapper {
+          color: $deep-orange;
+        }
+      }
+    }
+  }
+}
+
+// Responsive tweaks
+@include respond(lg) {
+  .home-container { padding: 32px 18px; }
+
+  .home-hero h1 { font-size: 2.4rem; }
+}
+
+@include respond(md) {
+  .home-container { padding: 28px 16px; }
+  .home-hero h1 { font-size: 2rem; }
+
+  .categories-grid { gap: 20px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+
+  .category-card { padding: 22px; }
+}
+
+@include respond(sm) {
+  .home-container { padding: 20px 12px; }
+  .home-hero h1 { font-size: 1.6rem; }
+
+  .categories-grid { gap: 14px; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+
+  .category-card { padding: 16px; }
+}

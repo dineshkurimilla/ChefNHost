@@ -1,0 +1,202 @@
+@import './variables';
+
+.cutlery-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+
+  .cutlery-header {
+    text-align: center;
+    margin-bottom: 30px;
+    h1 { color: $deep-orange; font-size: 2.5rem; margin-bottom: 8px; }
+    p { color: lighten($dark-charcoal, 15%); }
+  }
+}
+
+/* Category Selection Tabs */
+.category-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+
+  .tab-btn {
+    background: #ffffff;
+    border: 1px solid rgba($gold-accent, 0.4);
+    color: $dark-charcoal;
+    padding: 10px 20px;
+    font-weight: 500;
+    font-size: 0.95rem;
+
+    &:hover {
+      border-color: $deep-orange;
+      color: $deep-orange;
+    }
+
+    &.active {
+      background: $deep-orange;
+      color: $cream-white;
+      border-color: $deep-orange;
+    }
+  }
+}
+
+/* Page Layout Split */
+.cutlery-layout {
+  display: flex;
+  gap: 35px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+/* Sidebar Styling */
+.filters-sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  background: #ffffff;
+  padding: 24px;
+  border-radius: $border-radius;
+  border: 1px solid rgba($dark-charcoal, 0.08);
+  height: fit-content;
+
+  .filter-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    color: $dark-charcoal;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    h3 { font-size: 1.15rem; }
+  }
+
+  .filter-group {
+    h4 { color: $gold-accent; margin-bottom: 12px; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      font-size: 0.95rem;
+
+      input[type="checkbox"] {
+        accent-color: $deep-orange;
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+}
+
+/* Product Catalog Grid */
+.product-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 25px;
+
+  .no-results {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px;
+    color: lighten($dark-charcoal, 25%);
+  }
+
+  .product-card {
+    background: #ffffff;
+    border-radius: $border-radius;
+    border: 1px solid rgba($dark-charcoal, 0.05);
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    transition: all $transition-speed;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba($deep-orange, 0.08);
+      border-color: rgba($gold-accent, 0.4);
+    }
+
+    .product-image-placeholder {
+      background: mix($cream-white, $gold-accent, 92%);
+      height: 160px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+
+      .product-icon { font-size: 3.5rem; }
+      
+      .badge {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        background: rgba(#ffffff, 0.9);
+        border: 1px solid rgba($gold-accent, 0.5);
+        color: $dark-charcoal;
+        padding: 4px 10px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        border-radius: 20px;
+      }
+    }
+
+    .product-details {
+      padding: 20px;
+
+      h3 { font-size: 1.1rem; margin-bottom: 4px; color: $dark-charcoal; }
+      .category-tag { font-size: 0.85rem; color: lighten($dark-charcoal, 30%); margin-bottom: 12px; }
+      
+      .price {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: $deep-orange;
+        margin-bottom: 16px;
+        small { font-weight: 400; font-size: 0.85rem; color: gray; }
+      }
+
+      .card-actions {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+
+        .qty-selector {
+          display: flex;
+          align-items: center;
+          border: 1px solid #ddd;
+          border-radius: 6px;
+          overflow: hidden;
+
+          button {
+            background: #f9f9f9;
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $dark-charcoal;
+            border-radius: 0;
+            
+            &:hover { background: #eee; }
+          }
+
+          span { padding: 0 12px; font-weight: 600; min-width: 24px; text-align: center; }
+        }
+
+        .add-to-cart-btn {
+          flex: 1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 6px;
+          padding: 10px;
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+}

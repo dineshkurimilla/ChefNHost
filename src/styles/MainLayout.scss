@@ -1,0 +1,100 @@
+@import './variables';
+
+.layout-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  background-color: #ffffff;
+  border-bottom: 2px solid rgba($gold-accent, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  .nav-brand a {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $deep-orange;
+    text-decoration: none;
+  }
+
+  .nav-links a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: $dark-charcoal;
+    font-weight: 500;
+    
+    &:hover { color: $deep-orange; }
+  }
+
+  .nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    a {
+      color: $dark-charcoal;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      &:hover { color: $deep-orange; }
+    }
+    
+    .login-btn {
+      background-color: $deep-orange;
+      color: $cream-white;
+      padding: 8px 16px;
+      border-radius: $border-radius;
+      
+      &:hover { background-color: darken($deep-orange, 10%); }
+    }
+  }
+}
+
+// Responsive navbar adjustments
+@include respond(md) {
+  .navbar {
+    padding: 0.75rem 4%;
+
+    .nav-brand a { font-size: 1.25rem; }
+
+    .nav-icons {
+      gap: 12px;
+
+      a { gap: 6px; }
+
+      .login-btn { padding: 6px 10px; }
+    }
+  }
+}
+
+@include respond(sm) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 0.6rem 3%;
+
+    .nav-brand { width: 100%; }
+    .nav-icons { width: 100%; justify-content: flex-end; }
+  }
+}
+
+.main-content {
+  flex: 1;
+}
+
+.footer {
+  text-align: center;
+  padding: 2rem;
+  background-color: $dark-charcoal;
+  color: $cream-white;
+}
